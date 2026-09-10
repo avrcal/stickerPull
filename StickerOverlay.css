@@ -1,0 +1,203 @@
+#vc-sp-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: visible;
+}
+
+.vc-sp-sticker {
+    position: fixed;
+    width: 88px;
+    height: 88px;
+    pointer-events: auto;
+    z-index: 9999;
+    cursor: grab;
+    user-select: none;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    transition: transform 0.08s ease, filter 0.08s ease;
+}
+
+.vc-sp-sticker:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+    z-index: 10000;
+}
+
+.vc-sp-sticker.vc-sp-foreign {
+    cursor: not-allowed;
+    opacity: 0.92;
+}
+
+.vc-sp-sticker.vc-sp-foreign:hover {
+    transform: none;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    z-index: 9999;
+}
+
+.vc-sp-sticker img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    display: block;
+}
+
+.vc-sp-ghost {
+    position: fixed;
+    width: 88px;
+    height: 88px;
+    pointer-events: none;
+    z-index: 99999;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    will-change: left, top;
+}
+
+.vc-sp-ghost img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+#vc-sp-pull-ghost {
+    position: fixed;
+    width: 88px;
+    height: 88px;
+    pointer-events: none;
+    z-index: 99999;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+#vc-sp-pull-ghost img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.vc-sp-menu {
+    position: fixed;
+    z-index: 100000;
+    background: var(--background-floating, #18191c);
+    border-radius: 8px;
+    padding: 6px 8px;
+    min-width: 160px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--background-modifier-accent, #3f4147);
+    pointer-events: auto;
+}
+
+.vc-sp-menu-item {
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--text-normal, #dcddde);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.vc-sp-menu-item:hover {
+    background: var(--background-modifier-hover, rgba(79, 84, 92, 0.16));
+    color: var(--text-normal, #fff);
+}
+
+.vc-sp-menu-danger {
+    color: var(--status-danger, #ed4245);
+}
+
+.vc-sp-menu-danger:hover {
+    background: var(--status-danger-background, rgba(237, 66, 69, 0.1));
+    color: var(--status-danger, #ed4245);
+}
+
+.vc-sp-section {
+    position: fixed;
+    z-index: 100001;
+    width: 340px;
+    max-width: calc(100vw - 24px);
+    background: var(--background-floating, #18191c);
+    border: 1px solid var(--background-modifier-accent, #3f4147);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    user-select: none;
+    font-family: var(--font-primary, "gg sans");
+}
+
+.vc-sp-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--background-modifier-accent, #3f4147);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-normal, #dcddde);
+}
+
+.vc-sp-section-meta {
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--text-muted, #949ba4);
+}
+
+.vc-sp-section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    gap: 4px;
+    padding: 10px;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.vc-sp-section-grid img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    cursor: grab;
+    border-radius: 8px;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.vc-sp-section-grid img:hover {
+    background: var(--background-modifier-hover);
+}
+
+.vc-sp-section-hint {
+    grid-column: 1 / -1;
+    color: var(--text-muted, #949ba4);
+    font-size: 13px;
+    padding: 16px 4px;
+    text-align: center;
+}
+
+.vc-sp-locked-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    color: #fff;
+    background: var(--background-floating, #1e1f22);
+    border: 1px solid var(--background-modifier-accent, #3f4147);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+.vc-sp-locked-toggle:hover {
+    color: #fff;
+    background: var(--background-modifier-hover, #2b2d31);
+}
+
+#vc-sp-overlay.vc-sp-hidden {
+    display: none !important;
+}
